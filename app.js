@@ -1,7 +1,7 @@
 const socket = require('socket.io');
 const app = require('./config/server')();
 
-const server = app.listen(8000, () => {
+const server = app.listen(process.env.PORT || 8001, () => {
   console.log('Server online');
 });
 
