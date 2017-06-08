@@ -15,6 +15,7 @@ module.exports = (application) => {
     }
 
     application.get('io').emit('msgParaCliente', {apelido: dadosForm.apelido, mensagem: 'acabou de entrar no chat'});
+    application.get('io').broadcast.emit('msgParaCliente', {apelido: dadosForm.apelido, mensagem: 'acabou de entrar no chat'});
 
     res.render('chat', {dadosForm: dadosForm});
   };
