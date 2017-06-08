@@ -13,7 +13,7 @@ module.exports = () => {
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(expressValidator());
 
-  consign()
+  consign({cwd: process.cwd()+"/"})
     .include('app/routes')
     .then('app/controllers')
     .into(app);
