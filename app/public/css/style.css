@@ -1,6 +1,6 @@
 body {
     background-color: #444;
-    background: url('../images/login-bg.jpg');  
+    background: url('../images/login-bg.jpg');
 }
 
 .form-signin input[type="text"] {
@@ -85,6 +85,7 @@ img {
 	margin-bottom:15px;
 	padding:10px;
 	background:#D8F0FE;
+      border-radius: 5px;
 }
 
 .dialogo h4{
@@ -97,4 +98,12 @@ img {
 	font-size:12px;
 	padding-left:15px;
 	color:#8B7777;
+}
+
+.dialogo.minhaMensagem {
+  background: #8bffb1;
+}
+.dialogo.mensagemEnviada {
+  background: #f8f8f8;
+  box-shadow: 2px 2px 2px #dcdcdc;
 }

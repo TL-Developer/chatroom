@@ -19,12 +19,16 @@ io.on('connection', (socket) => {
   socket.on('msgParaServidor', (data) => {
     socket.emit('msgParaCliente', {
       apelido: data.apelido,
-      mensagem: data.mensagem
+      mensagem: data.mensagem,
+      cor: 'minhaMensagem',
+      hora: data.hora
     });
 
      socket.broadcast.emit('msgParaCliente', {
       apelido: data.apelido,
-      mensagem: data.mensagem
+      mensagem: data.mensagem,
+      cor: 'mensagemEnviada',
+      hora: data.hora
     });
 
      if(parseInt(data.apelido_atualizado_nos_clientes) == 0) {

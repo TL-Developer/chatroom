@@ -5,7 +5,7 @@ RUN useradd --user-group --create-home --shel /bin/false app &&\
 
 ENV HOME=/home/app
 
-COPY package.json npm-shrinkwrap.json & $HOME/chatroom/
+COPY package.json npm-shrinkwrap.json $HOME/chatroom/
 RUN chown -R app:app $HOME/*
 
 USER app
