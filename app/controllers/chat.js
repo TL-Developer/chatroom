@@ -14,7 +14,13 @@ module.exports = (application) => {
       return;
     }
 
-    application.get('io').emit('msgParaCliente', {apelido: dadosForm.apelido, mensagem: 'acabou de entrar no chat'});
+    let date = new Date();
+    let minuto = date.getMinutes() < '10' ? '0' + date.getMinutes() : date.getMinutes();
+    let h = date.getHours() < '10' ? '0' + date.getHours() : date.getHours();
+    let hora = h + ':' + minuto;
+
+    application.get('io').emit('msgParaCliente', {apelido: dadosForm.apelido, mensagem: 'acabou de entrar no chat', hora: hora});
+    application.get('io').emit('participantesParaCliente', {apelido: dadosForm.apelido});
 
     res.render('chat', {dadosForm: dadosForm});
   };

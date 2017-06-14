@@ -107,3 +107,7 @@ img {
   background: #f8f8f8;
   box-shadow: 2px 2px 2px #dcdcdc;
 }
+.digitando {
+  display: block;
+  width: 100%;
+}

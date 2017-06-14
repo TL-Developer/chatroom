@@ -9,11 +9,12 @@ const io = socket.listen(server);
 
 app.set('io', io);
 
+
 io.on('connection', (socket) => {
   console.log('Usuário conectado');
 
-  socket.on('disconnect', () => {
-    console.log('Usuário desconectou')
+  socket.on('disconnect', (data) => {
+    console.log('Usuário desconectou');
   });
 
   socket.on('msgParaServidor', (data) => {
@@ -31,14 +32,9 @@ io.on('connection', (socket) => {
       hora: data.hora
     });
 
-     if(parseInt(data.apelido_atualizado_nos_clientes) == 0) {
-       socket.emit('participantesParaCliente', {
+     socket.broadcast.emit('usuarioDigitando', {
+        digitando: data.digitando,
         apelido: data.apelido
-      });
-
-       socket.broadcast.emit('participantesParaCliente', {
-        apelido: data.apelido
-      });
-     }
+     });
   });
 });
